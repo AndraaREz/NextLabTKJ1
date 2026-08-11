@@ -1,0 +1,3 @@
+import { Card } from "@/components/ui/card";
+const ports=[["20/21","FTP"],["22","SSH"],["23","Telnet"],["25","SMTP"],["53","DNS"],["80","HTTP"],["110","POP3"],["143","IMAP"],["443","HTTPS"],["3389","RDP"],["8080","HTTP Alt."]];
+export default function Ports(){return <main className="mx-auto max-w-4xl px-4 py-10"><h1 className="text-3xl font-semibold">Port Reference</h1><div className="mt-8 overflow-hidden rounded-2xl border"><div className="grid grid-cols-2 bg-muted p-4 text-sm font-medium"><span>Port</span><span>Service</span></div>{ports.map(([p,s])=><div key={p} className="grid grid-cols-2 border-t p-4 text-sm"><span className="font-mono">{p}</span><span>{s}</span></div>)}</div></main>}

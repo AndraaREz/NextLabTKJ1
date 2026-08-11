@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { Card } from "@/components/ui/card";
+const lessons=[["osi","OSI Model"],["tcp-ip","TCP/IP"],["ip-addressing","IP Addressing"],["subnetting","Subnetting"],["vlan","VLAN"],["dhcp","DHCP"],["dns","DNS"],["routing","Routing"],["nat","NAT"],["firewall","Firewall"]];
+export default function Learn(){return <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><h1 className="text-3xl font-semibold">Learning Center</h1><p className="mt-2 text-muted-foreground">Materi inti jaringan komputer untuk TKJ.</p><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{lessons.map(([slug,title],i)=><Link href={`/learn/${slug}`} key={slug}><Card className="p-5 transition hover:border-foreground/20"><span className="text-xs text-muted-foreground">LESSON {String(i+1).padStart(2,"0")}</span><h2 className="mt-3 font-medium">{title}</h2></Card></Link>)}</div></main>}

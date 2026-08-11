@@ -1,0 +1,8 @@
+"use client";
+import { useState } from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Monitor, Router, Server, Cable } from "lucide-react";
+
+type Node={id:number;name:string;type:string};
+export default function Lab(){const [nodes,setNodes]=useState<Node[]>([]);const add=(type:string)=>setNodes(n=>[...n,{id:Date.now(),name:`${type} ${n.filter(x=>x.type===type).length+1}`,type}]);return <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8"><h1 className="text-3xl font-semibold">Network Lab</h1><p className="mt-2 text-muted-foreground">Topology workspace foundation. Tambahkan device untuk memulai simulasi.</p><div className="mt-8 grid gap-4 lg:grid-cols-[260px_1fr]"><Card className="p-5"><h2 className="font-medium">Devices</h2><div className="mt-4 grid gap-2"><Button variant="secondary" onClick={()=>add("PC")}><Monitor className="h-4 w-4"/>PC</Button><Button variant="secondary" onClick={()=>add("Switch")}><Server className="h-4 w-4"/>Switch</Button><Button variant="secondary" onClick={()=>add("Router")}><Router className="h-4 w-4"/>Router</Button><Button variant="secondary" onClick={()=>add("Cable")}><Cable className="h-4 w-4"/>Cable</Button></div></Card><Card className="min-h-[420px] p-5"><div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">{nodes.map(n=><div key={n.id} className="rounded-2xl border bg-muted p-5"><p className="text-xs text-muted-foreground">{n.type}</p><p className="mt-2 font-medium">{n.name}</p></div>)}</div>{nodes.length===0&&<div className="flex min-h-[360px] items-center justify-center text-sm text-muted-foreground">Canvas topology kosong</div>}</Card></div></main>}

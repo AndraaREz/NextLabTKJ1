@@ -1,0 +1,6 @@
+"use client";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+const qs=[{q:"Port default HTTPS adalah?",a:["80","443","22","53"],c:1},{q:"Layer OSI yang menangani routing IP?",a:["Physical","Data Link","Network","Application"],c:2},{q:"Urutan DHCP yang benar?",a:["DORA","RADO","ROAD","ADRO"],c:0}];
+export default function Quiz(){const [i,setI]=useState(0);const [score,setScore]=useState(0);const [done,setDone]=useState(false);function pick(n:number){if(n===qs[i].c)setScore(s=>s+1);if(i+1===qs.length)setDone(true);else setI(x=>x+1)}return <main className="mx-auto max-w-2xl px-4 py-12">{done?<Card className="p-8 text-center"><h1 className="text-3xl font-semibold">Quiz selesai</h1><p className="mt-4 text-5xl font-semibold">{score}/{qs.length}</p><Button className="mt-6" onClick={()=>{setI(0);setScore(0);setDone(false)}}>Ulangi</Button></Card>:<Card className="p-7"><p className="text-sm text-muted-foreground">Question {i+1}/{qs.length}</p><h1 className="mt-4 text-2xl font-semibold">{qs[i].q}</h1><div className="mt-7 grid gap-3">{qs[i].a.map((a,n)=><Button key={a} variant="secondary" className="justify-start text-left" onClick={()=>pick(n)}>{a}</Button>)}</div></Card>}</main>}

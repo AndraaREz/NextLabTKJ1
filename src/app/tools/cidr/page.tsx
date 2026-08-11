@@ -1,0 +1,3 @@
+import { Card } from "@/components/ui/card";
+const rows=[["/24","255.255.255.0","254"],["/25","255.255.255.128","126"],["/26","255.255.255.192","62"],["/27","255.255.255.224","30"],["/28","255.255.255.240","14"],["/29","255.255.255.248","6"],["/30","255.255.255.252","2"]];
+export default function CIDR(){return <main className="mx-auto max-w-4xl px-4 py-10"><h1 className="text-3xl font-semibold">CIDR Reference</h1><div className="mt-8 grid gap-3">{rows.map(r=><Card key={r[0]} className="grid grid-cols-3 p-4 text-sm"><b>{r[0]}</b><span className="font-mono">{r[1]}</span><span>{r[2]} usable hosts</span></Card>)}</div></main>}

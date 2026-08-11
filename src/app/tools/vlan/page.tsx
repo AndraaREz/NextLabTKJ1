@@ -1,0 +1,3 @@
+import { Card } from "@/components/ui/card";
+const rows=[["10","Management"],["20","Guru/TU"],["30","Siswa"],["40","CCTV"],["50","Guest"]];
+export default function VLAN(){return <main className="mx-auto max-w-4xl px-4 py-10"><h1 className="text-3xl font-semibold">VLAN Reference</h1><p className="mt-2 text-muted-foreground">Contoh segmentasi yang bisa kamu modifikasi untuk lab.</p><div className="mt-8 grid gap-3">{rows.map(r=><Card key={r[0]} className="flex items-center justify-between p-4"><span className="font-mono">VLAN {r[0]}</span><span className="text-sm text-muted-foreground">{r[1]}</span></Card>)}</div></main>}
